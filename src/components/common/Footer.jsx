@@ -9,14 +9,14 @@ const Footer = () => {
   const socialLinks = [
     { 
       name: 'GitHub', 
-      url: 'https://github.com/aalyanmughal', 
+      url: 'https://github.com/allayanmughal', 
       icon: FaGithub, 
       color: 'hover:text-gray-400',
       type: 'external'
     },
     { 
       name: 'Instagram', 
-      url: 'https://instagram.com/aalyan_mughal', 
+      url: 'https://www.instagram.com/allayanmughal1/', 
       icon: FaInstagram, 
       color: 'hover:text-pink-500',
       type: 'external'
