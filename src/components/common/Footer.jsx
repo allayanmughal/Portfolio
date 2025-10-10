@@ -1,0 +1,134 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
+
+const Footer = () => {
+  const navigate = useNavigate();
+
+  const socialLinks = [
+    { 
+      name: 'GitHub', 
+      url: 'https://github.com/aalyanmughal', 
+      icon: FaGithub, 
+      color: 'hover:text-gray-400',
+      type: 'external'
+    },
+    { 
+      name: 'Instagram', 
+      url: 'https://instagram.com/aalyan_mughal', 
+      icon: FaInstagram, 
+      color: 'hover:text-pink-500',
+      type: 'external'
+    },
+    { 
+      name: 'Email', 
+      url: 'mailto:mughalallayan2@gmail.com', 
+      icon: FaEnvelope, 
+      color: 'hover:text-red-400',
+      type: 'email'
+    },
+  ];
+
+  const handleEmailClick = (event, link) => {
+    if (link.type === 'email') {
+      // Direct to Gmail
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=mughalallayan2@gmail.com', '_blank');
+    }
+  };
+
+  const handleContactNavigation = () => {
+    navigate('/contact');
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
+  return (
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-12"
+    >
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <motion.h3 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent"
+        >
+          Let's Build Something Amazing Together!
+        </motion.h3>
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center space-x-8 mb-6"
+        >
+          {socialLinks.map((link, index) => (
+            <motion.a
+              key={link.name}
+              href={link.url}
+              target={link.type === 'external' ? '_blank' : '_self'}
+              rel={link.type === 'external' ? 'noopener noreferrer' : ''}
+              onClick={(e) => handleEmailClick(e, link)}
+              whileHover={{ 
+                scale: 1.2,
+                y: -5 
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 + 0.4 }}
+              className={`text-2xl transition-colors duration-300 text-white ${link.color} cursor-pointer`}
+              title={link.name}
+            >
+              <link.icon className="w-6 h-6" />
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* Contact Page Navigation Button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-4"
+        >
+          <motion.button
+            onClick={handleContactNavigation}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Or Send Me a Message Directly
+          </motion.button>
+        </motion.div>
+        
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="text-blue-200 mb-2 mt-6"
+        >
+          Software Engineering Student • COMSATS University Islamabad, Abbottabad Campus
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="text-blue-300 text-sm"
+        >
+          © {new Date().getFullYear()} Aalyan Mughal. Crafted with passion and modern web technologies.
+        </motion.p>
+      </div>
+    </motion.footer>
+  );
+};
+
+export default Footer;
