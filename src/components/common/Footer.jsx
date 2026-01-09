@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
-
+import { useTheme } from '../../contexts/ThemeContext';
 const Footer = () => {
   const navigate = useNavigate();
+  
+  // Get theme from context
+  const { isDark, isLight } = useTheme();
 
   const socialLinks = [
     { 
@@ -52,14 +55,22 @@ const Footer = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-12"
+      className={`py-12 ${
+        isDark 
+          ? 'bg-gradient-to-r from-gray-900 to-blue-900 text-white' 
+          : 'bg-gradient-to-r from-blue-100 to-purple-100 text-gray-900'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 text-center">
         <motion.h3 
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent"
+          className={`text-3xl font-bold mb-6 bg-clip-text text-transparent ${
+            isDark 
+              ? 'bg-gradient-to-r from-white to-blue-200' 
+              : 'bg-gradient-to-r from-gray-900 to-blue-700'
+          }`}
         >
           Let's Build Something Amazing Together!
         </motion.h3>
@@ -85,7 +96,9 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.4 }}
-              className={`text-2xl transition-colors duration-300 text-white ${link.color} cursor-pointer`}
+              className={`text-2xl transition-colors duration-300 cursor-pointer ${
+                isDark ? 'text-white' : 'text-gray-800'
+              } ${link.color}`}
               title={link.name}
             >
               <link.icon className="w-6 h-6" />
@@ -114,7 +127,9 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="text-blue-200 mb-2 mt-6"
+          className={`mb-2 mt-6 ${
+            isDark ? 'text-blue-200' : 'text-blue-800'
+          }`}
         >
           Software Engineering Student • COMSATS University Islamabad, Abbottabad Campus
         </motion.p>
@@ -122,7 +137,9 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-blue-300 text-sm"
+          className={`text-sm ${
+            isDark ? 'text-blue-300' : 'text-blue-700'
+          }`}
         >
           © {new Date().getFullYear()} Aalyan Mughal. Crafted with passion and modern web technologies.
         </motion.p>
