@@ -367,7 +367,7 @@ const Home = () => {
                     : 'bg-gradient-to-br from-white to-gray-100'
                 }`}>
                   <motion.img
-                    src="/images/portfolio/aalyan-profile.jpg"
+                    src="/images/portfolio/aalyan-profile1.jpg"
                     alt="Aalyan Mughal - Software Engineering Student"
                     className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-inner"
                     whileHover={{ 

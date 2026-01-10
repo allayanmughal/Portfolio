@@ -48,7 +48,7 @@ const Navbar = () => {
       lightColor: 'light:hover:text-gray-700' 
     },
     { 
-      url: 'https://www.linkedin.com/in/allayan-mughal-2a4b09299/', 
+      url: 'https://www.linkedin.com/in/aalyan-mughal-2a4b09299/', 
       icon: FaLinkedin, 
       color: 'hover:text-blue-400',
       darkColor: 'dark:hover:text-blue-400',
