@@ -3,10 +3,9 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 const SocialLinks = () => {
   const socials = [
-    { icon: <FaGithub />, url: 'https://github.com/aalyan' },
-    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/aalyan' },
-    { icon: <FaTwitter />, url: 'https://twitter.com/aalyan' },
-    { icon: <FaEnvelope />, url: 'mailto:aalyan@example.com' },
+    { icon: <FaGithub />, url: 'https://github.com/allayanmughal' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/aalyan-mughal-2a4b09299/' },
+    { icon: <FaEnvelope />, url: 'mailto:mughalallayan2@gmail.com' },
   ];
 
   return (
