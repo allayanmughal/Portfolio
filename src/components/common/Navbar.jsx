@@ -94,7 +94,7 @@ const Navbar = () => {
                 to="/" 
                 className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent relative flex items-center gap-2"
               >
-                <FaCode className="text-blue-400" />
+                {/* <FaCode className="text-blue-400" />w */}
                 <span>Portfolio</span>
                 <motion.div
                   className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500"
